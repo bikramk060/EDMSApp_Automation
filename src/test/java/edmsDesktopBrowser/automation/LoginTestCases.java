@@ -31,7 +31,7 @@ public class LoginTestCases {
 			}
 	}
 	
-	
+	@Test
 	public void LoginInValidUserName() throws InterruptedException
 	{
 		try {
@@ -43,7 +43,7 @@ public class LoginTestCases {
 			}
 	}
 	
-	
+	@Test
 	public void LoginInValidPassword() throws InterruptedException
 	{
 		try {
