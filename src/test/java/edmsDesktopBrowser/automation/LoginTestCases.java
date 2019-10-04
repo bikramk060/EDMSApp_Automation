@@ -1,21 +1,23 @@
 
 package edmsDesktopBrowser.automation;
 
+
+
+import java.util.ArrayList;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import BusinessFunction.DesktopBrowserLoginBusiness;
+import Utility.TestDataBase;
 import Utility.UtilitiesWebDriver;
 
-public class LoginTestCases {
-	
+public class LoginTestCases{
+
 	public static WebDriver driver;
+	ArrayList<String> CredentialData = new ArrayList<String>();
 	
 	@BeforeMethod
 	public void SetPropertyForWebDriver() throws Exception
@@ -24,22 +26,22 @@ public class LoginTestCases {
 		UtilitiesWebDriver.GetApplicationURL(driver);
 	}
 	
-	@Test
-	public void LoginValidCredentials() throws InterruptedException
+	@Test(testName="TC001", description="Login with valid Username and password")
+	public void LoginValidCredentials()
 	{
-		System.out.println("Executing Valid Credentials");
 		try {
-			if(DesktopBrowserLoginBusiness.LoginInApplication("kdfadmin.gen","KdfAlfoMahesh15")) {
+			CredentialData = TestDataBase.FetchUsernameAndPassword("TC001");
+			if(DesktopBrowserLoginBusiness.LoginInApplication(CredentialData.get(0).toString(),CredentialData.get(1).toString())) {
 				System.out.println("TestCase Passed");}
-			}
+		}
 		catch(Exception ex){
-			System.out.println("Exception Caused: " + ex.getLocalizedMessage());
-			Assert.fail("Failing valid Credentails");
+ 			System.out.println("Exception Caused: " + ex.getLocalizedMessage());
+			Assert.fail("Exception Caused: " + ex.getLocalizedMessage());
 			}
 	}
 	
-	@Test
-	public void LoginInValidUserName() throws InterruptedException
+	//@Test(testName="TC002", description="Login with Invalid Username")
+	public void LoginInValidUserName()
 	{
 		System.out.println("Executing InValid Username");
 		try {
@@ -47,13 +49,13 @@ public class LoginTestCases {
 			System.out.println("TestCase Passed");}
 			}
 		catch(Exception ex){
-			System.out.println("Exception Caused: " + ex.getMessage());
+			System.out.println("Exception Caused: " + ex.getLocalizedMessage());
 			Assert.fail("Failing Invalid UserName");
 			}
 	}
 	
-	@Test
-	public void LoginInValidPassword() throws InterruptedException
+	//@Test(testName="TC003", description="Login with valid Username but invalid password")
+	public void LoginInValidPassword()
 	{
 		System.out.println("Executing InValid Password");
 		try {
@@ -61,16 +63,17 @@ public class LoginTestCases {
 				System.out.println("TestCase Passed");}	
 			}
 		catch(Exception ex){
-			System.out.println("Exception Caused: " + ex.getMessage());
+			System.out.println("Exception Caused: " + ex.getLocalizedMessage());
 			Assert.fail("Failing Invalid Password");
 			}
 	}
+
 	
 	@AfterMethod
 	public void TerminateDriverInstance()
 	{
-		
 		UtilitiesWebDriver.KillDriverInstance(LoginTestCases.driver);
+		TestDataBase.KillDriverInstanceMySQL();
 	}
 
 }

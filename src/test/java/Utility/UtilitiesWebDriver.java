@@ -12,13 +12,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class UtilitiesWebDriver {
 	
 	static WebDriver driver1;
-	static Common common;
+	static ReadPropertyFile readPropertyFile;
 	public static WebDriver OpenBrowser(WebDriver driver) throws Exception{
-		common= new Common();
-		String browser = common.GetBrowserName();
-		if(browser.equalsIgnoreCase("firefox")){
-		//Enable setProprty only if you are using Selenium 3.0/above and firefox 37 and above
-			//System.setProperty("webdriver.firefox.marionette", ".\\geckodriver.exe");
+		readPropertyFile= new ReadPropertyFile();
+		if(readPropertyFile.GetBrowserName().equalsIgnoreCase("firefox")){
+			System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") + "\\src\\test\\Drivers\\geckodriver.exe"); //Enable setProprty only if you are using Selenium 3.0/above and firefox 37 and above
 			driver = new FirefoxDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -26,8 +24,9 @@ public class UtilitiesWebDriver {
 			driver1=driver;
 			return driver;
 		}
-		else if(browser.equalsIgnoreCase("chrome")){
-			System.setProperty("webdriver.chrome.driver","C:\\Users\\akmukhop\\Documents\\MobileAutomationTesting\\com.TestAutomationEDMS.application\\src\\test\\Drivers\\chromedriver_v76.exe");
+		else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("chrome")){
+			System.out.println(System.getProperty("user.dir") +"//src");
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\src\\test\\Drivers\\chromedriver_v76.exe");
 			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -35,9 +34,9 @@ public class UtilitiesWebDriver {
 			driver1=driver;
 			return driver;
 		}
-		else if(browser.equalsIgnoreCase("Edge")){
+		else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("Edge")){
 			
-			System.setProperty("webdriver.edge.driver",".\\MicrosoftWebDriver.exe");
+			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir") + "\\src\\test\\Drivers\\MicrosoftWebDriver.exe");
 			driver = new EdgeDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -54,16 +53,16 @@ public class UtilitiesWebDriver {
 	
 	public static void GetApplicationURL(WebDriver driver) throws InterruptedException, IOException
 	{
-		common= new Common();
-		String environment = common.GetExecutionEnvironment();
+		readPropertyFile= new ReadPropertyFile();
+		String environment = readPropertyFile.GetExecutionEnvironment();
 		if(environment.equalsIgnoreCase("TS1"))
 		{
-			driver.get(common.GetTS1BrowserURL());
+			driver.get(readPropertyFile.GetTS1BrowserURL());
 			Thread.sleep(1000);
 		}
 		else if (environment.equalsIgnoreCase("TS3"))
 		{
-			driver.get(common.GetTS3BrowserURL());
+			driver.get(readPropertyFile.GetTS3BrowserURL());
 			Thread.sleep(2000);
 		}
 	}

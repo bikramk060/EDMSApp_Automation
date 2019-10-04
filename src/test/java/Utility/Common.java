@@ -1,52 +1,50 @@
 package Utility;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import Utility.ReadPropertyFile;
 
-public class Common {
+public class Common{
+
+	public static Connection connection=null; 
+	public static Statement statement = null;
+	static ReadPropertyFile readPropertyFile;
+	public static Statement ConnectToTestDataBase()
+	{
+		try{
+			readPropertyFile = new ReadPropertyFile();
+			
+			 Class.forName(readPropertyFile.GetDriverRegistrationJDBC().toString());
+			 System.out.println("\n...DRIVER LOADED...");
+			 connection = DriverManager.getConnection(readPropertyFile.GetDBConnectionURL().toString(),readPropertyFile.GetUserNameDB().toString(),readPropertyFile.GetPasswordDB().toString());
+			 statement = connection.createStatement();
+			return statement;
+			}
+		 catch (Exception e) {
+			 	System.out.println("Exception caused: " + e);
+			 	return statement;
+		 	}
+	}
 	
-	Properties prop = new Properties();
-	FileInputStream propertyFile;
-	Common() throws IOException
+	public static void TerminateDriverInstanceDB(Statement statement1) throws SQLException
 	{
-		try {
-			propertyFile=new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\Resources\\Config.properties");			
-			prop.load(propertyFile);
-		}
-		catch (Exception ex)
-		{
-			System.out.println("Exception Caused: ");
-			ex.printStackTrace();
-		}
+	    if (statement1 != null)
+	    	statement1.close();
+	    
+	    if (Common.connection !=null)
+	    	{
+	    	Common.connection.close();
+	    	System.out.println("Closed Connection");
+	    	}
 	}
-	public String GetTS1BrowserURL() throws IOException
+	
+	public static void TerminateDataBaseResultSetInstance(ResultSet resultSet) throws SQLException
 	{
-		System.out.println("TS1_Login_URL: "+ prop.getProperty("TS1_LOGIN_URL"));
-		return prop.getProperty("TS1_LOGIN_URL");
-	}
-	public String GetBrowserUserName() 
-	{
-		return prop.getProperty("USERNAME");
-	}
-	public String GetBrowserPassword() 
-	{
-		return prop.getProperty("PASSWORD");
-	}
-	public String GetTS3BrowserURL() 
-	{
-		return prop.getProperty("TS3_LOGIN_URL");
-	}
-	public String GetServiceBaseURI() 
-	{
-		return prop.getProperty("BASE_URI");
-	}
-	public String GetBrowserName()
-	{
-		return prop.getProperty("BROWSER");
-	}
-	public String GetExecutionEnvironment()
-	{
-		return prop.getProperty("EXECUTION_ENV");
+		if (resultSet!= null)
+			resultSet.close();
 	}
 }

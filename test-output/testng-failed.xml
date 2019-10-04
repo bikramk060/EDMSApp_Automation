@@ -7,7 +7,7 @@
         <methods>
           <include name="TerminateDriverInstance"/>
           <include name="SetPropertyForWebDriver"/>
-          <include name="LoginInValidUserName"/>
+          <include name="LoginValidCredentials"/>
         </methods>
       </class> <!-- edmsDesktopBrowser.automation.LoginTestCases -->
     </classes>
