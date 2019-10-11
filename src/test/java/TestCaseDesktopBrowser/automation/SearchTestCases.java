@@ -32,16 +32,8 @@ public class SearchTestCases{
 	
 			String[] miscellaneousData=null;
 			System.out.println("DB Fetched Data: " + dbFetchedTestData.get(1));
-			
 			System.out.println();
-			String [] test = dbFetchedTestData.get(1).split("\\|");
-		//System.out.println("after using regex" + test[1]);
-		for(String t : test)
-		{
-			
-			System.out.println(" split data is " + t);
-		}
-			miscellaneousData = dbFetchedTestData.get(1).toString().split("\\|");
+			miscellaneousData = dbFetchedTestData.get(1).toString().split("\\||");
 			partyID = dbFetchedTestData.get(0);
 			accountName = dbFetchedTestData.get(0);
 			businessEntityID = dbFetchedTestData.get(0);
