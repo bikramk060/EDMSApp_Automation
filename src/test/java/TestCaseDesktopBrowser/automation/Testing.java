@@ -1,4 +1,4 @@
-package edmsDesktopBrowser.automation;
+package TestCaseDesktopBrowser.automation;
 
 import java.util.concurrent.TimeUnit;
 

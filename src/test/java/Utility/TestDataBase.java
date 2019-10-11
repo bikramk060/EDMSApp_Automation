@@ -1,6 +1,5 @@
 package Utility;
 
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,42 +21,40 @@ public class TestDataBase extends Common{
 			e.printStackTrace();
 		}
 	 }
+	 
+	 public static void ConnectToDB()
+	 {
+		 statement = Common.ConnectToTestDataBase();
+	 }
 
 	public static ArrayList<String> FetchUsernameAndPassword(String testCaseName) throws SQLException
 	{
 		ArrayList<String> dataList = new ArrayList<String>();
-		try {
-			statement = Common.ConnectToTestDataBase();
-			resultSet = statement.executeQuery("SELECT Username,Password FROM automationtestingdbedms.edms_login_data_table where TestCaseNumber='" + testCaseName + "'");
-			while(resultSet.next())
-			 {
-				
-				System.out.println(resultSet.getString("Password"));
-				dataList.add(resultSet.getString("Username"));
-				dataList.add(resultSet.getString("Password"));
-			 }
-			return dataList;
-			}
-		catch (Exception ex)
+		resultSet = statement.executeQuery("SELECT Username,Password FROM automationtestingdbedms.edms_login_data_table where TestCaseNumber='" + testCaseName + "'");
+		while(resultSet.next())
+		 {
+			dataList.add(resultSet.getString("Username"));
+			dataList.add(resultSet.getString("Password"));
+		 }
+		return dataList;
+	}
+	
+	public static ArrayList<String> FetchSearchCustomerData(String testCaseNumber) throws SQLException 
+	{
+		ArrayList<String> dataList = new ArrayList<String>();
+		resultSet = statement.executeQuery("SELECT SearchBy,SearchData,MiscellaneousData FROM automationtestingdbedms.edms_search_customer_data where TestCaseNumber='" + testCaseNumber + "'");
+		while(resultSet.next())
+		 {
+			//dataList.add(resultSet.getString("SearchBy"));
+			dataList.add(resultSet.getString("SearchData"));
+			dataList.add(resultSet.getString("MiscellaneousData"));
+		 }
+		for(int i=0;i<dataList.size();i++)
 		{
-			System.out.println("Exception: " + ex);
-			return dataList;
+			System.out.println(dataList.get(i));
 		}
+		return dataList;
 	}
 	
-	/*
-	public static String[] FetchSearchCustomerData(String testCaseName) throws SQLException
-	{		
-			resultSet = statement.executeQuery("SELECT Username,Password FROM automationtestingdbedms.edms_login_data_table where TestCaseNumber='" + testCaseName + "'");
-			while(resultSet.next())
-			 {
-				 data[0] = resultSet.getString("Username");
-				 data[1] = resultSet.getString("Password");
-			 }
-			return data;
-	}
-	*/
-
 	
-
 }

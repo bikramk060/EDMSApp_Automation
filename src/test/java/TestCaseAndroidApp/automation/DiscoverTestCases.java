@@ -1,4 +1,4 @@
-package edmsAndroidApp.automation;
+package TestCaseAndroidApp.automation;
 
 import java.net.MalformedURLException;
 import java.net.URL;

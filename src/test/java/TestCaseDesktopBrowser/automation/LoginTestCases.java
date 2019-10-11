@@ -1,23 +1,35 @@
 
-package edmsDesktopBrowser.automation;
+package TestCaseDesktopBrowser.automation;
 
 
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import BusinessFunction.DesktopBrowserLoginBusiness;
+
+import BusinessFunctionDesktopBrowser.DesktopBrowserLoginBusiness;
+import Utility.ReadPropertyFile;
 import Utility.TestDataBase;
 import Utility.UtilitiesWebDriver;
 
 public class LoginTestCases{
 
 	public static WebDriver driver;
-	ArrayList<String> CredentialData = new ArrayList<String>();
+	public ReadPropertyFile readPropertyFile;
+	
+	
+	@BeforeClass
+	public void DataSetup() throws IOException
+	{
+		readPropertyFile = new ReadPropertyFile();
+	}
 	
 	@BeforeMethod
 	public void SetPropertyForWebDriver() throws Exception
@@ -30,13 +42,14 @@ public class LoginTestCases{
 	public void LoginValidCredentials()
 	{
 		try {
-			CredentialData = TestDataBase.FetchUsernameAndPassword("TC001");
-			if(DesktopBrowserLoginBusiness.LoginInApplication(CredentialData.get(0).toString(),CredentialData.get(1).toString())) {
-				System.out.println("TestCase Passed");}
-		}
+				if(DesktopBrowserLoginBusiness.LoginInApplication(readPropertyFile.GetBrowserLoginValidUserName(),readPropertyFile.GetBrowserLoginValidPassword())) 
+				{
+					System.out.println("TestCase Passed");
+				}
+			}
 		catch(Exception ex){
  			System.out.println("Exception Caused: " + ex.getLocalizedMessage());
-			Assert.fail("Exception Caused: " + ex.getLocalizedMessage());
+ 			Validation.AssertionsDesktopBrowser.AssertFailMessage("Exception Caused: " + ex.getLocalizedMessage());
 			}
 	}
 	
@@ -45,12 +58,12 @@ public class LoginTestCases{
 	{
 		System.out.println("Executing InValid Username");
 		try {
-			if(DesktopBrowserLoginBusiness.LoginInApplication("AKRAM","KdfAlfoMahesh15")) {
+			if(DesktopBrowserLoginBusiness.LoginInApplication(readPropertyFile.GetBrowserLoginInvalidUserName(),readPropertyFile.GetBrowserLoginValidPassword())) {
 			System.out.println("TestCase Passed");}
 			}
 		catch(Exception ex){
 			System.out.println("Exception Caused: " + ex.getLocalizedMessage());
-			Assert.fail("Failing Invalid UserName");
+			Validation.AssertionsDesktopBrowser.AssertFailMessage("Failing Invalid UserName");
 			}
 	}
 	
@@ -59,12 +72,12 @@ public class LoginTestCases{
 	{
 		System.out.println("Executing InValid Password");
 		try {
-			if(DesktopBrowserLoginBusiness.LoginInApplication("kdfadmin.gen","Arbitrary")) {
+			if(DesktopBrowserLoginBusiness.LoginInApplication(readPropertyFile.GetBrowserLoginValidUserName(),readPropertyFile.GetBrowserLoginInvalidPassword())) {
 				System.out.println("TestCase Passed");}	
 			}
 		catch(Exception ex){
 			System.out.println("Exception Caused: " + ex.getLocalizedMessage());
-			Assert.fail("Failing Invalid Password");
+			Validation.AssertionsDesktopBrowser.AssertFailMessage("Failing Invalid Password");
 			}
 	}
 
@@ -73,7 +86,7 @@ public class LoginTestCases{
 	public void TerminateDriverInstance()
 	{
 		UtilitiesWebDriver.KillDriverInstance(LoginTestCases.driver);
-		TestDataBase.KillDriverInstanceMySQL();
+		
 	}
 
 }

@@ -19,7 +19,7 @@ public class Common{
 			readPropertyFile = new ReadPropertyFile();
 			
 			 Class.forName(readPropertyFile.GetDriverRegistrationJDBC().toString());
-			 System.out.println("\n...DRIVER LOADED...");
+			 System.out.println("\n...Test DataBase Connected...");
 			 connection = DriverManager.getConnection(readPropertyFile.GetDBConnectionURL().toString(),readPropertyFile.GetUserNameDB().toString(),readPropertyFile.GetPasswordDB().toString());
 			 statement = connection.createStatement();
 			return statement;

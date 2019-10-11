@@ -2,13 +2,15 @@ package Utility;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.Properties;
 
 public class ReadPropertyFile {
 	
 	Properties prop = new Properties();
 	FileInputStream propertyFile;
-	ReadPropertyFile() throws IOException
+	Base64.Decoder decoder = Base64.getDecoder();
+	public ReadPropertyFile() throws IOException
 	{
 		try {
 			propertyFile=new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\Resources\\Config.properties");			
@@ -22,16 +24,27 @@ public class ReadPropertyFile {
 	}
 	public String GetTS1BrowserURL() throws IOException
 	{
-		System.out.println("TS1_Login_URL: "+ prop.getProperty("TS1_LOGIN_URL"));
 		return prop.getProperty("TS1_LOGIN_URL");
 	}
-	public String GetBrowserUserName() 
+	public String GetBrowserLoginValidUserName() 
 	{
-		return prop.getProperty("USERNAME");
+		String sUserName = new String(decoder.decode(prop.getProperty("VALID_USERNAME")));
+		System.out.println("Username: " + sUserName);
+		return sUserName;
 	}
-	public String GetBrowserPassword() 
+	public String GetBrowserLoginValidPassword() 
 	{
-		return prop.getProperty("PASSWORD");
+		String sPassword = new String(decoder.decode(prop.getProperty("VALID_PASSWORD")));
+		System.out.println("Password: " + sPassword);
+		return sPassword;
+	}
+	public String GetBrowserLoginInvalidUserName() 
+	{
+		return prop.getProperty("INVALID_USERNAME");
+	}
+	public String GetBrowserLoginInvalidPassword() 
+	{
+		return prop.getProperty("INVALID_PASSWORD");
 	}
 	public String GetTS3BrowserURL() 
 	{
@@ -59,10 +72,12 @@ public class ReadPropertyFile {
 	}
 	public String GetUserNameDB()
 	{
-		return prop.getProperty("DB_USERNAME");
+		String sUserName = new String(decoder.decode(prop.getProperty("DB_USERNAME")));
+		return sUserName;
 	}
 	public String GetPasswordDB()
 	{
-		return prop.getProperty("DB_PASSWORD");
+		String sPassword = new String(decoder.decode(prop.getProperty("DB_PASSWORD")));
+		return sPassword;
 	}
 }

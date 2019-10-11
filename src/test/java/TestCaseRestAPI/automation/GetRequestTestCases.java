@@ -1,4 +1,4 @@
-package edmsRestAPI.automation;
+package TestCaseRestAPI.automation;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="edmsDesktopBrowser.automation.LoginTestCases">
+      <class name="TestCaseDesktopBrowser.automation.SearchTestCases">
         <methods>
+          <include name="DataSetup"/>
           <include name="TerminateDriverInstance"/>
+          <include name="SearchCustomerAccountNumber"/>
+          <include name="DataCleanUp"/>
           <include name="SetPropertyForWebDriver"/>
-          <include name="LoginValidCredentials"/>
         </methods>
-      </class> <!-- edmsDesktopBrowser.automation.LoginTestCases -->
+      </class> <!-- TestCaseDesktopBrowser.automation.SearchTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

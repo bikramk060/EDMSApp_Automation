@@ -1,4 +1,4 @@
-package PageClasses;
+package PageClassDesktopBrowser;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
