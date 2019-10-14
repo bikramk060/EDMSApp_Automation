@@ -13,7 +13,7 @@ public class ReadPropertyFile {
 	public ReadPropertyFile() throws IOException
 	{
 		try {
-			propertyFile=new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\Resources\\Config.properties");			
+			propertyFile=new FileInputStream(System.getProperty("user.dir") + "\\Resources\\ConfigurationalFiles\\EnvConfig.properties");			
 			prop.load(propertyFile);
 		}
 		catch (Exception ex)

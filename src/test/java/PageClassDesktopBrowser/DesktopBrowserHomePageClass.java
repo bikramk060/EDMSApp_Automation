@@ -84,10 +84,10 @@ public class DesktopBrowserHomePageClass {
 		switch (fileType) 
 		{
 			case XML:
-				ChooseFileButton.sendKeys(System.getProperty("user.dir") + "\\src\\test\\TestDataFiles\\EndCustomer_Partner_Disocunt_L2N_req.xml");
+				ChooseFileButton.sendKeys(System.getProperty("user.dir") + "\\Resources\\TestDataFiles\\EndCustomer_Partner_Disocunt_L2N_req.xml");
 					break;
 			case EXCEL:
-					ChooseFileButton.sendKeys(System.getProperty("user.dir") + "\\src\\test\\TestDataFiles\\Oct MR and Q2FY20 Scopes.xlsx");
+					ChooseFileButton.sendKeys(System.getProperty("user.dir") + "\\Resources\\TestDataFiles\\Oct MR and Q2FY20 Scopes.xlsx");
 				    break;
 			default:
 					System.out.println("INVALID FILE TYPE");
@@ -109,9 +109,5 @@ public class DesktopBrowserHomePageClass {
 	public String FetchImportRequestErrorMessage()
 	{
 		return actionBrowserObj.GetTextOfElement(importRequestErrorMessage);
-	}
-		
-	
-	
-	
+	}	
 }

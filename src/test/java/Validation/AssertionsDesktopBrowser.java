@@ -1,6 +1,6 @@
 package Validation;
 
-import static org.testng.Assert.assertEquals;
+import java.util.ArrayList;
 import org.testng.Assert;
 
 public class AssertionsDesktopBrowser {
@@ -55,6 +55,14 @@ public class AssertionsDesktopBrowser {
 	public static void AssertTrue(boolean condition)
 	{
 		Assert.assertTrue(condition);
+	}
+	
+	public static boolean AssertValueFromArrayStringList(ArrayList<String> sDataList, String sSearchData)
+	{
+		if (sDataList.contains(sSearchData))
+			return true;
+		else
+			return false;
 	}
 	
 	

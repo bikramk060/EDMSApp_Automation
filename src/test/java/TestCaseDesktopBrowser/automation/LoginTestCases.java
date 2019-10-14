@@ -4,26 +4,19 @@ package TestCaseDesktopBrowser.automation;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import BusinessFunctionDesktopBrowser.DesktopBrowserLoginBusiness;
 import Utility.ReadPropertyFile;
-import Utility.TestDataBase;
 import Utility.UtilitiesWebDriver;
 
 public class LoginTestCases{
 
 	public static WebDriver driver;
 	public ReadPropertyFile readPropertyFile;
-	
 	
 	@BeforeClass
 	public void DataSetup() throws IOException
@@ -53,7 +46,7 @@ public class LoginTestCases{
 			}
 	}
 	
-	//@Test(testName="TC002", description="Login with Invalid Username")
+	@Test(testName="TC002", description="Login with Invalid Username")
 	public void LoginInValidUserName()
 	{
 		System.out.println("Executing InValid Username");
@@ -67,7 +60,7 @@ public class LoginTestCases{
 			}
 	}
 	
-	//@Test(testName="TC003", description="Login with valid Username but invalid password")
+	@Test(testName="TC003", description="Login with valid Username but invalid password")
 	public void LoginInValidPassword()
 	{
 		System.out.println("Executing InValid Password");
@@ -85,7 +78,7 @@ public class LoginTestCases{
 	@AfterMethod
 	public void TerminateDriverInstance()
 	{
-		UtilitiesWebDriver.KillDriverInstance(LoginTestCases.driver);
+		UtilitiesWebDriver.KillWebDriverInstance(LoginTestCases.driver);
 		
 	}
 

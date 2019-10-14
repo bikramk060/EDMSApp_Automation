@@ -12,7 +12,7 @@ public class TestDataBase extends Common{
 	 public static ResultSet resultSet =null;
 	 
 	 
-	 public static void KillDriverInstanceMySQL()
+	 public static void KillMySQLDriverInstance()
 	 {
 		 try {
 			Common.TerminateDriverInstanceDB(statement);

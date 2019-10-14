@@ -14,29 +14,41 @@ public class UtilitiesWebDriver {
 	static WebDriver driver1;
 	static ReadPropertyFile readPropertyFile;
 	public static WebDriver OpenBrowser(WebDriver driver) throws Exception{
-		readPropertyFile= new ReadPropertyFile();
-		if(readPropertyFile.GetBrowserName().equalsIgnoreCase("firefox")){
-			System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") + "\\src\\test\\Drivers\\geckodriver.exe"); //Enable setProprty only if you are using Selenium 3.0/above and firefox 37 and above
+	readPropertyFile= new ReadPropertyFile();
+	if(readPropertyFile.GetBrowserName().equalsIgnoreCase("firefox"))
+	{
+			System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") + "\\Resources\\Drivers\\geckodriver.exe"); //Enable setProprty only if you are using Selenium 3.0/above and firefox 37 and above
 			driver = new FirefoxDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 			driver1=driver;
 			return driver;
-		}
-		else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("chrome")){
+	}
+	else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("chrome"))
+	{
 			System.out.println(System.getProperty("user.dir") +"//src");
-			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\src\\test\\Drivers\\chromedriver_v76.exe");
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\Resources\\Drivers\\chromedriver_v76.exe");
 			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
 			//driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 			driver1=driver;
 			return driver;
+	}
+		else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("Edge"))
+		{
+			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir") + "\\Resources\\Drivers\\MicrosoftWebDriver.exe");
+			driver = new EdgeDriver();
+			driver.manage().deleteAllCookies();
+			driver.manage().window().maximize();
+			driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+			driver1=driver;
+			return driver;
 		}
-		else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("Edge")){
-			
-			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir") + "\\src\\test\\Drivers\\MicrosoftWebDriver.exe");
+		else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("IE"))
+		{
+			System.setProperty("webdriver.ie.driver",System.getProperty("user.dir") + "\\Resources\\Drivers\\IEDriverServer.exe");
 			driver = new EdgeDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -67,7 +79,7 @@ public class UtilitiesWebDriver {
 		}
 	}
 	
-	public static void KillDriverInstance(WebDriver driver)
+	public static void KillWebDriverInstance(WebDriver driver)
 	{
 		driver.close();
 		driver.quit();

@@ -5,15 +5,12 @@ package TestCaseDesktopBrowser.automation;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import BusinessFunctionDesktopBrowser.DesktopBrowserHomeBusiness;
 import BusinessFunctionDesktopBrowser.DesktopBrowserLoginBusiness;
 import Utility.TestDataBase;
@@ -22,12 +19,11 @@ import Utility.UtilitiesWebDriver;
 public class HomeTestCases{
 
 	public static WebDriver driver;
-	ArrayList<String> CredentialData = new ArrayList<String>();
+	
 	@BeforeClass
 	public void DataSetup() throws SQLException, IOException
 	{
-		CredentialData = TestDataBase.FetchUsernameAndPassword("TC001");
-		System.out.println("DB Data: " + CredentialData.get(0) + CredentialData.get(1));
+		TestDataBase.ConnectToDB();
 	}
 	
 	@BeforeMethod
@@ -113,14 +109,14 @@ public class HomeTestCases{
 	@AfterMethod
 	public void TerminateDriverInstance()
 	{
-		UtilitiesWebDriver.KillDriverInstance(HomeTestCases.driver);
+		UtilitiesWebDriver.KillWebDriverInstance(HomeTestCases.driver);
 		
 	}
 	
 	@AfterClass
 	public void DataCleanUp()
 	{
-		TestDataBase.KillDriverInstanceMySQL();
+		TestDataBase.KillMySQLDriverInstance();
 	}
 
 }

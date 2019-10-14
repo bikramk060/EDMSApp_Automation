@@ -7,8 +7,8 @@
         <methods>
           <include name="DataSetup"/>
           <include name="TerminateDriverInstance"/>
-          <include name="SearchCustomerAccountNumber"/>
           <include name="DataCleanUp"/>
+          <include name="SearchCustomerBusinessEntityID"/>
           <include name="SetPropertyForWebDriver"/>
         </methods>
       </class> <!-- TestCaseDesktopBrowser.automation.SearchTestCases -->

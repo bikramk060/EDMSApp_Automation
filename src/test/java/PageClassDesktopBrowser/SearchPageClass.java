@@ -2,9 +2,6 @@ package PageClassDesktopBrowser;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,8 +22,7 @@ public class SearchPageClass {
 			this.driver=Idriver;
 			PageFactory.initElements(driver, this);
 	}
-	
-	
+		
 	@FindBy(how=How.ID, using =  "srchTyp")
 	public WebElement selectCustomerSearchBy;
 	
@@ -38,6 +34,53 @@ public class SearchPageClass {
 	
 	@FindBy(how=How.XPATH, using =  "//span[@kdfid='tpTgglBtn2']")
 	public WebElement searchTab;
+	
+	@FindBy(how=How.ID, using =  "accntPrcLstFltr")
+	public WebElement selectPriceList;
+	
+	@FindBy(how=How.ID, using =  "accntCntryDrpDwnFltr")
+	public WebElement selectEndCustomerCountry;
+	
+	@FindBy(how=How.ID, using =  "accntSearchIntUse")
+	public WebElement selectIntendedUse;
+	
+	@FindBy(how=How.ID, using =  "accntSearchSku")
+	public WebElement multipleProductSku;
+	
+	@FindBy(how=How.ID, using =  "accntNameSrchCntry")
+	public WebElement selectSearchCountryAccountName;
+	
+	@FindBy(how=How.XPATH, using =  "//tr[contains(@class,'ev_dhx_skyblue')]/td")
+	public List<WebElement> allVisibleSearchResults;
+	
+	public void SelectCountrySearchForAccountName(String sCountryName)
+	{
+		Select CountrySearchAccountNameDropDown = new Select(selectSearchCountryAccountName);
+		CountrySearchAccountNameDropDown.selectByVisibleText(sCountryName);
+	}
+
+	public void SelectPriceList(String sPriceList)
+	{
+		Select priceListDropDown = new Select(selectPriceList);
+		priceListDropDown.selectByVisibleText(sPriceList);
+	}
+	
+	public void SelectEndCustomerCountry(String sEndCustomerCountry)
+	{
+		Select endCustomerCountryDropDown = new Select(selectEndCustomerCountry);
+		endCustomerCountryDropDown.selectByVisibleText(sEndCustomerCountry);
+	}
+	
+	public void SelectIntendedUse(String sIntendedUse)
+	{
+		Select intendedUseDropDown = new Select(selectIntendedUse);
+		intendedUseDropDown.selectByVisibleText(sIntendedUse);
+	}
+	
+	public void SetValueMultipleProductSku(String sProductSku)
+	{
+		actionBrowserObj.SendTextinTextbox(multipleProductSku, sProductSku);
+	}
 	
 	public void SelectCustomerSearchBy(Utility.Enums.SearchCustomers searchBy) throws InterruptedException
 	{
@@ -56,6 +99,8 @@ public class SearchPageClass {
 					break;
 			case CUSTOMER_ACCOUNT_NUMBER:
 				selectShowTypeDropDown.selectByVisibleText("Customer Account Number");
+			case BEGEO_ID:
+				selectShowTypeDropDown.selectByVisibleText("Customer Account Number");
 				    break;	 
 			default:
 					System.out.println("INVALID SEARCH BY VALUE SELECTED");
@@ -73,38 +118,23 @@ public class SearchPageClass {
 		actionBrowserObj.clickOnElement(searchButton);
 	}
 	
-	public Boolean SearchGridValueExist(String searchValue)
-	{
-		if(actionBrowserObj.IsElementAvailable(driver.findElement(By.xpath("//td[contains(text(),'" + searchValue + "')]"))))
-			return true;
-		else
-			return false;
-	}
-	
 	public void ClickOnSearchTabOnHomePage()
 	{
 		actionBrowserObj.clickOnElement(searchTab);
 	}
+		
+	public ArrayList<String> FetchAllVisibleSearchResult()
+	{
 
-		
-//	public ArrayList<String> FetchAllRequestIDVisibleOnScreen(String requestStatus)
-//	{
-//		List<WebElement> allRequestOnScreen = AllRequestVisibleOnScreen(requestStatus);
-//		ArrayList<String> requestID = new ArrayList<String>();
-//		if(allRequestOnScreen.size()!=0)
-//			{
-//			for (WebElement element : allRequestOnScreen) {
-//				requestID.add(element.getText());
-//				}
-//			return requestID;
-//			}
-//		else
-//			return requestID=null;
-//	}
-	
-	
-		
-	
-	
-	
+		ArrayList<String> sAllSearchResults = new ArrayList<String>();
+		if(allVisibleSearchResults.size()!=0)
+			{
+			for (WebElement element : allVisibleSearchResults) {
+				sAllSearchResults.add(element.getText());
+				}
+			return sAllSearchResults;
+			}
+		else
+			return sAllSearchResults=null;
+	}
 }
