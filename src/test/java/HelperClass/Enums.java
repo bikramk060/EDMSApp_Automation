@@ -1,4 +1,4 @@
-package Utility;
+package HelperClass;
 
 public class Enums {
 	
@@ -15,7 +15,7 @@ public class Enums {
     	 CUSTOMER_ACCOUNT_NUMBER,
     	 BUSINESS_ENTITY_ID,
     	 ACCOUNT_NAME,
-    	 BEGEO_ID
+    	 BEGEO_ID,
      }
 
 }

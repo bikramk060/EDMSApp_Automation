@@ -3,10 +3,10 @@ package BusinessFunctionDesktopBrowser;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import HelperClass.ReadPropertyFile;
 import PageClassDesktopBrowser.DesktopBrowserHomePageClass;
 import PageClassDesktopBrowser.DesktopBrowserReviewAndSubmitPageClass;
 import TestCaseDesktopBrowser.automation.HomeTestCases;
-import Utility.ReadPropertyFile;
 import Utility.UtilitiesWebDriver;
 import Validation.AssertionsDesktopBrowser;
 
@@ -54,7 +54,7 @@ public class DesktopBrowserHomeBusiness {
 		}	
 	}
 	
-	public static void CreateDiscountRequestViaExcelUpload(Utility.Enums.FileType fileType ) throws InterruptedException 
+	public static void CreateDiscountRequestViaExcelUpload(HelperClass.Enums.FileType fileType ) throws InterruptedException 
 	{
 		
 		DesktopBrowserHomePageClass DesktopBrowserHomePageObj = new DesktopBrowserHomePageClass(HomeTestCases.driver);

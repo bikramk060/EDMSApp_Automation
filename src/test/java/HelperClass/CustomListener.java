@@ -1,11 +1,13 @@
-package BusinessFunctionDesktopBrowser;
+package HelperClass;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import TestCaseDesktopBrowser.automation.SearchTestCases;
 
-public class Listener implements ITestListener {
+public class CustomListener extends SearchTestCases implements ITestListener{
 
+	
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
 		
@@ -18,7 +20,6 @@ public class Listener implements ITestListener {
 
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		
 		
 	}
 
@@ -41,5 +42,9 @@ public class Listener implements ITestListener {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
+
+	
 
 }

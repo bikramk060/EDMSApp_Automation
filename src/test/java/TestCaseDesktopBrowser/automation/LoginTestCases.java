@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import BusinessFunctionDesktopBrowser.DesktopBrowserLoginBusiness;
-import Utility.ReadPropertyFile;
+import HelperClass.ReadPropertyFile;
 import Utility.UtilitiesWebDriver;
 
 public class LoginTestCases{
@@ -31,7 +31,7 @@ public class LoginTestCases{
 		UtilitiesWebDriver.GetApplicationURL(driver);
 	}
 	
-	@Test(testName="TC001", description="Login with valid Username and password")
+	@Test(testName="TC001", description="TC001: Login with valid Username and password")
 	public void LoginValidCredentials()
 	{
 		try {
@@ -46,7 +46,7 @@ public class LoginTestCases{
 			}
 	}
 	
-	@Test(testName="TC002", description="Login with Invalid Username")
+	@Test(testName="TC002", description="TC002: Login with Invalid Username")
 	public void LoginInValidUserName()
 	{
 		System.out.println("Executing InValid Username");
@@ -60,7 +60,7 @@ public class LoginTestCases{
 			}
 	}
 	
-	@Test(testName="TC003", description="Login with valid Username but invalid password")
+	@Test(testName="TC003", description="TC003: Login with valid Username but invalid password")
 	public void LoginInValidPassword()
 	{
 		System.out.println("Executing InValid Password");
@@ -76,7 +76,7 @@ public class LoginTestCases{
 
 	
 	@AfterMethod
-	public void TerminateDriverInstance()
+	public void TearDown()
 	{
 		UtilitiesWebDriver.KillWebDriverInstance(LoginTestCases.driver);
 		

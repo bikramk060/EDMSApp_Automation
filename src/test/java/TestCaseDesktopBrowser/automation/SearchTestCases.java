@@ -1,5 +1,6 @@
 package TestCaseDesktopBrowser.automation;
 
+import java.io.IOException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import org.openqa.selenium.WebDriver;
@@ -72,13 +73,28 @@ public class SearchTestCases{
 		SetTestDataValue(CredentialData);
 	}
 	
+	@AfterMethod
+	public void TearDown()
+	{
+		UtilitiesWebDriver.KillWebDriverInstance(SearchTestCases.driver);	
+	}
+	
+	@AfterClass
+	public void DataCleanUp()
+	{
+		TestDataBase.KillMySQLDriverInstance();
+	}
+	
+	
+	
 	@Test(testName ="TC008", description="TC008: Search Customer by Party ID")
 	public void SearchCustomerPartyID()
 	{
+		
 		try {
 			if(DesktopBrowserLoginBusiness.LoginInApplication()) 
 			{
-				if(SearchBusinessDesktopBrowser.SearchCustomerDetails(Utility.Enums.SearchCustomers.PARTY_ID, sPartyID, sPriceLists, sEndCustomerCountry, sIntendedUse, sMultipleProductSku)) 
+				if(SearchBusinessDesktopBrowser.SearchCustomerDetails(HelperClass.Enums.SearchCustomers.PARTY_ID, sPartyID, sPriceLists, sEndCustomerCountry, sIntendedUse, sMultipleProductSku)) 
 				{
 					System.out.println("TestCase Passed");
 				}
@@ -91,13 +107,14 @@ public class SearchTestCases{
 	}
 	
 	@Test(testName ="TC009", description="TC009: Search Customer by Account Number")
-	public void SearchCustomerAccountNumber()
+	public void SearchCustomerAccountNumber() throws IOException
 	{
+		Validation.AssertionsDesktopBrowser.AssertFail();
 
 		try {
 			if(DesktopBrowserLoginBusiness.LoginInApplication()) 
 			{
-				if(SearchBusinessDesktopBrowser.SearchCustomerDetails(Utility.Enums.SearchCustomers.CUSTOMER_ACCOUNT_NUMBER, sCustomerAccountNumber, sPriceLists, sEndCustomerCountry, sIntendedUse, sMultipleProductSku)) 
+				if(SearchBusinessDesktopBrowser.SearchCustomerDetails(HelperClass.Enums.SearchCustomers.CUSTOMER_ACCOUNT_NUMBER, sCustomerAccountNumber, sPriceLists, sEndCustomerCountry, sIntendedUse, sMultipleProductSku)) 
 				{
 					System.out.println("TestCase Passed");
 				}
@@ -112,11 +129,11 @@ public class SearchTestCases{
 	@Test(testName ="TC010", description="TC010: Search Customer by Business Entity ID (BE ID)")
 	public void SearchCustomerBusinessEntityID()
 	{
-
+		Validation.AssertionsDesktopBrowser.AssertTrue(false);
 		try {
 			if(DesktopBrowserLoginBusiness.LoginInApplication()) 
 			{
-				if(SearchBusinessDesktopBrowser.SearchCustomerDetails(Utility.Enums.SearchCustomers.BUSINESS_ENTITY_ID, sBusinessEntityID, sPriceLists, sEndCustomerCountry, sIntendedUse, sMultipleProductSku)) 
+				if(SearchBusinessDesktopBrowser.SearchCustomerDetails(HelperClass.Enums.SearchCustomers.BUSINESS_ENTITY_ID, sBusinessEntityID, sPriceLists, sEndCustomerCountry, sIntendedUse, sMultipleProductSku)) 
 				{
 					System.out.println("TestCase Passed");
 				}
@@ -131,11 +148,11 @@ public class SearchTestCases{
 	@Test(testName ="TC011", description="TC011: Search Customer by Account Name")
 	public void SearchCustomerAccountName()
 	{
-
+		Validation.AssertionsDesktopBrowser.AssertTrue(true);
 		try {
 			if(DesktopBrowserLoginBusiness.LoginInApplication()) 
 			{
-				if(SearchBusinessDesktopBrowser.SearchCustomerDetails(Utility.Enums.SearchCustomers.ACCOUNT_NAME, sAccountName, sPriceLists, sEndCustomerCountry, sIntendedUse, sMultipleProductSku)) 
+				if(SearchBusinessDesktopBrowser.SearchCustomerDetails(HelperClass.Enums.SearchCustomers.ACCOUNT_NAME, sAccountName, sPriceLists, sEndCustomerCountry, sIntendedUse, sMultipleProductSku)) 
 				{
 					System.out.println("TestCase Passed");
 				}
@@ -146,18 +163,4 @@ public class SearchTestCases{
  			Validation.AssertionsDesktopBrowser.AssertFailMessage("Exception Caused: " + ex.getLocalizedMessage());
 			}
 	}
-	
-	
-	@AfterMethod
-	public void TerminateDriverInstance()
-	{
-		UtilitiesWebDriver.KillWebDriverInstance(SearchTestCases.driver);	
-	}
-	
-	@AfterClass
-	public void DataCleanUp()
-	{
-		TestDataBase.KillMySQLDriverInstance();
-	}
-
 }

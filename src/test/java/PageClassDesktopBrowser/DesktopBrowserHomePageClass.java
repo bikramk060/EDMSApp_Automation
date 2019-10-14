@@ -79,7 +79,7 @@ public class DesktopBrowserHomePageClass {
 		actionBrowserObj.clickOnElement(ImportRequestButton);
 	}
 	
-	public void UploadFileToImport(Utility.Enums.FileType fileType)
+	public void UploadFileToImport(HelperClass.Enums.FileType fileType)
 	{
 		switch (fileType) 
 		{

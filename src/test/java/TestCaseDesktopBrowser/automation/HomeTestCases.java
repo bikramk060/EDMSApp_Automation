@@ -76,7 +76,7 @@ public class HomeTestCases{
 		try {
 			if(DesktopBrowserLoginBusiness.LoginInApplication()) 
 			{
-				DesktopBrowserHomeBusiness.CreateDiscountRequestViaExcelUpload(Utility.Enums.FileType.EXCEL);
+				DesktopBrowserHomeBusiness.CreateDiscountRequestViaExcelUpload(HelperClass.Enums.FileType.EXCEL);
 				if(DesktopBrowserHomeBusiness.ValidateErrorMessage())
 					System.out.println("Testcase Passed");
 				else
@@ -94,7 +94,7 @@ public class HomeTestCases{
 		try {
 			if(DesktopBrowserLoginBusiness.LoginInApplication()) 
 			{
-				DesktopBrowserHomeBusiness.CreateDiscountRequestViaExcelUpload(Utility.Enums.FileType.XML);
+				DesktopBrowserHomeBusiness.CreateDiscountRequestViaExcelUpload(HelperClass.Enums.FileType.XML);
 				if(DesktopBrowserHomeBusiness.ValidateErrorMessage())
 					System.out.println("Testcase Passed");
 				else
@@ -107,7 +107,7 @@ public class HomeTestCases{
 	}
 	
 	@AfterMethod
-	public void TerminateDriverInstance()
+	public void TearDown()
 	{
 		UtilitiesWebDriver.KillWebDriverInstance(HomeTestCases.driver);
 		

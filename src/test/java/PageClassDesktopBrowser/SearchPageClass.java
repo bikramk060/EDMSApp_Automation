@@ -82,7 +82,7 @@ public class SearchPageClass {
 		actionBrowserObj.SendTextinTextbox(multipleProductSku, sProductSku);
 	}
 	
-	public void SelectCustomerSearchBy(Utility.Enums.SearchCustomers searchBy) throws InterruptedException
+	public void SelectCustomerSearchBy(HelperClass.Enums.SearchCustomers searchBy) throws InterruptedException
 	{
 		Select selectShowTypeDropDown = new Select(selectCustomerSearchBy);
 		UtilitiesWebDriver.ExplicitWait(1);

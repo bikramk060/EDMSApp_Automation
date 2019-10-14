@@ -1,7 +1,10 @@
 package Validation;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import org.testng.Assert;
+
+import Utility.UtilitiesWebDriver;
 
 public class AssertionsDesktopBrowser {
 
@@ -37,7 +40,7 @@ public class AssertionsDesktopBrowser {
 		
 	}
 	
-	public static void AssertFail()
+	public static void AssertFail() throws IOException
 	{
 		Assert.fail();
 	}

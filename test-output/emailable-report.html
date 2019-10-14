@@ -8,11 +8,51 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="7">Failed suite [Failed suite [Failed suite [Default suite]]]</th></tr>
-<tr><td><a href="#t0">Default test(failed)(failed)(failed)</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">71,285</td><td></td><td></td></tr>
+<tr><th colspan="7">RetryFailedTestCases</th></tr>
+<tr><td><a href="#t0">RetryMultipleFailedTestCases</a></td><td class="num">9</td><td class="num attn">6</td><td class="num attn">2</td><td class="num">564,579</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Failed suite [Failed suite [Failed suite [Default suite]]]</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test(failed)(failed)(failed) &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">TestCaseDesktopBrowser.automation.SearchTestCases</td><td><a href="#m0">SearchCustomerBusinessEntityID</a></td><td rowspan="1">1571045958045</td><td rowspan="1">46223</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">RetryFailedTestCases</th></tr></tbody><tbody id="t0"><tr><th colspan="4">RetryMultipleFailedTestCases &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">TestCaseDesktopBrowser.automation.SearchTestCases</td><td><a href="#m0">SearchCustomerAccountNumber</a></td><td rowspan="1">1571080204996</td><td rowspan="1">1</td></tr><tr class="failedeven"><td><a href="#m1">SearchCustomerBusinessEntityID</a></td><td rowspan="1">1571080283241</td><td rowspan="1">1</td></tr><tr><th colspan="4">RetryMultipleFailedTestCases &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="6">TestCaseDesktopBrowser.automation.SearchTestCases</td><td><a href="#m2">SearchCustomerAccountNumber</a></td><td rowspan="3">1571080166013</td><td rowspan="3">1</td></tr><tr class="skippedeven"><td><a href="#m3">SearchCustomerAccountNumber</a></td></tr><tr class="skippedeven"><td><a href="#m4">SearchCustomerAccountNumber</a></td></tr><tr class="skippedeven"><td><a href="#m5">SearchCustomerBusinessEntityID</a></td><td rowspan="3">1571080226663</td><td rowspan="3">3</td></tr><tr class="skippedeven"><td><a href="#m6">SearchCustomerBusinessEntityID</a></td></tr><tr class="skippedeven"><td><a href="#m7">SearchCustomerBusinessEntityID</a></td></tr><tr><th colspan="4">RetryMultipleFailedTestCases &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">TestCaseDesktopBrowser.automation.HomeTestCases</td><td><a href="#m8">ExcelUploadinImportRequestFeatureInvalidFileType</a></td><td rowspan="1">1571079884235</td><td rowspan="1">25154</td></tr><tr class="passedeven"><td><a href="#m9">ExcelUploadinImportRequestFeatureInvalidTemplate</a></td><td rowspan="1">1571079930060</td><td rowspan="1">25046</td></tr><tr class="passedeven"><td><a href="#m10">OpenCompletedRequestFromHomePage</a></td><td rowspan="1">1571079983282</td><td rowspan="1">35199</td></tr><tr class="passedeven"><td><a href="#m11">OpenPendingSubmissionRequestFromHomePage</a></td><td rowspan="1">1571080038849</td><td rowspan="1">29237</td></tr><tr class="passedodd"><td rowspan="3">TestCaseDesktopBrowser.automation.LoginTestCases</td><td><a href="#m12">LoginInValidPassword</a></td><td rowspan="1">1571080355684</td><td rowspan="1">8534</td></tr><tr class="passedodd"><td><a href="#m13">LoginInValidUserName</a></td><td rowspan="1">1571080383215</td><td rowspan="1">4651</td></tr><tr class="passedodd"><td><a href="#m14">LoginValidCredentials</a></td><td rowspan="1">1571080408228</td><td rowspan="1">14926</td></tr><tr class="passedeven"><td rowspan="2">TestCaseDesktopBrowser.automation.SearchTestCases</td><td><a href="#m15">SearchCustomerAccountName</a></td><td rowspan="1">1571080088574</td><td rowspan="1">36328</td></tr><tr class="passedeven"><td><a href="#m16">SearchCustomerPartyID</a></td><td rowspan="1">1571080304512</td><td rowspan="1">30259</td></tr></tbody>
 </table>
-<h2>Default test(failed)(failed)(failed)</h2><h3 id="m0">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerBusinessEntityID</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>RetryMultipleFailedTestCases</h2><h3 id="m0">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerAccountNumber</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at Validation.AssertionsDesktopBrowser.AssertFail(AssertionsDesktopBrowser.java:45)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountNumber(SearchTestCases.java:112)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerBusinessEntityID</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
+	at Validation.AssertionsDesktopBrowser.AssertTrue(AssertionsDesktopBrowser.java:60)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerBusinessEntityID(SearchTestCases.java:132)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerAccountNumber</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at Validation.AssertionsDesktopBrowser.AssertFail(AssertionsDesktopBrowser.java:45)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountNumber(SearchTestCases.java:112)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerAccountNumber</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at Validation.AssertionsDesktopBrowser.AssertFail(AssertionsDesktopBrowser.java:45)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountNumber(SearchTestCases.java:112)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerAccountNumber</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at Validation.AssertionsDesktopBrowser.AssertFail(AssertionsDesktopBrowser.java:45)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountNumber(SearchTestCases.java:112)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerBusinessEntityID</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
+	at Validation.AssertionsDesktopBrowser.AssertTrue(AssertionsDesktopBrowser.java:60)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerBusinessEntityID(SearchTestCases.java:132)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerBusinessEntityID</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
+	at Validation.AssertionsDesktopBrowser.AssertTrue(AssertionsDesktopBrowser.java:60)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerBusinessEntityID(SearchTestCases.java:132)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerBusinessEntityID</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
+	at Validation.AssertionsDesktopBrowser.AssertTrue(AssertionsDesktopBrowser.java:60)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerBusinessEntityID(SearchTestCases.java:132)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">TestCaseDesktopBrowser.automation.HomeTestCases#ExcelUploadinImportRequestFeatureInvalidFileType</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">TestCaseDesktopBrowser.automation.HomeTestCases#ExcelUploadinImportRequestFeatureInvalidTemplate</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">TestCaseDesktopBrowser.automation.HomeTestCases#OpenCompletedRequestFromHomePage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">TestCaseDesktopBrowser.automation.HomeTestCases#OpenPendingSubmissionRequestFromHomePage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">TestCaseDesktopBrowser.automation.LoginTestCases#LoginInValidPassword</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">TestCaseDesktopBrowser.automation.LoginTestCases#LoginInValidUserName</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">TestCaseDesktopBrowser.automation.LoginTestCases#LoginValidCredentials</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerAccountName</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m16">TestCaseDesktopBrowser.automation.SearchTestCases#SearchCustomerPartyID</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

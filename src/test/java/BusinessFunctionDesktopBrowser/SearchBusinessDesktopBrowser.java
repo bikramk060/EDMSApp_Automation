@@ -2,9 +2,9 @@ package BusinessFunctionDesktopBrowser;
 
 import java.util.ArrayList;
 
+import HelperClass.ReadPropertyFile;
 import PageClassDesktopBrowser.SearchPageClass;
 import TestCaseDesktopBrowser.automation.SearchTestCases;
-import Utility.ReadPropertyFile;
 import Utility.UtilitiesWebDriver;
 import Validation.AssertionsDesktopBrowser;
 
@@ -12,7 +12,7 @@ import Validation.AssertionsDesktopBrowser;
 public class SearchBusinessDesktopBrowser {
 	
 	public static ReadPropertyFile readPropertyFileObject; 
-	public static boolean SearchCustomerDetails(Utility.Enums.SearchCustomers searchType, String sSearchData, String priceList, String endCustomerCountry, String intendedUse, String multipleProductSku ) throws InterruptedException 
+	public static boolean SearchCustomerDetails(HelperClass.Enums.SearchCustomers searchType, String sSearchData, String priceList, String endCustomerCountry, String intendedUse, String multipleProductSku ) throws InterruptedException 
 	{
 		boolean status=false;
 		SearchPageClass SearchCustomerPageClassObj = new SearchPageClass(SearchTestCases.driver);

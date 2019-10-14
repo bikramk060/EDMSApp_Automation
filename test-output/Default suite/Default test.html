@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Oct 14 14:43:14 IST 2019</td>
+<td>Started on:</td><td>Mon Oct 14 22:17:03 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>303 seconds (303978 ms)</td>
+<tr><td>Total time:</td><td>32 seconds (32938 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,11 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerBusinessEntityID()'><b>SearchCustomerBusinessEntityID</b><br>Test class: TestCaseDesktopBrowser.automation.SearchTestCases<br>Test method: TC010: Search Customer by Business Entity ID (BE ID)</td>
-<td><div><pre>java.lang.AssertionError: Exception Caused: null
-	at org.testng.Assert.fail(Assert.java:96)
-	at Validation.AssertionsDesktopBrowser.AssertFailMessage(AssertionsDesktopBrowser.java:50)
-	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerBusinessEntityID(SearchTestCases.java:134)
+<td title='TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountNumber()'><b>SearchCustomerAccountNumber</b><br>Test class: TestCaseDesktopBrowser.automation.SearchTestCases<br>Test method: TC009: Search Customer by Account Number</td>
+<td><div><pre>java.io.IOException: The filename, directory name, or volume label syntax is incorrect
+	at java.base/java.io.WinNTFileSystem.canonicalize0(Native Method)
+	at java.base/java.io.WinNTFileSystem.canonicalize(WinNTFileSystem.java:416)
+	at java.base/java.io.File.getCanonicalPath(File.java:618)
+	at org.apache.commons.io.FileUtils.copyFile(FileUtils.java:1064)
+	at org.apache.commons.io.FileUtils.copyFile(FileUtils.java:1028)
+	at Utility.UtilitiesWebDriver.TakeScreenshot(UtilitiesWebDriver.java:107)
+	at Validation.AssertionsDesktopBrowser.AssertFail(AssertionsDesktopBrowser.java:45)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountNumber(SearchTestCases.java:98)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -105,11 +110,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace954723689", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace954723689'><pre>java.lang.AssertionError: Exception Caused: null
-	at org.testng.Assert.fail(Assert.java:96)
-	at Validation.AssertionsDesktopBrowser.AssertFailMessage(AssertionsDesktopBrowser.java:50)
-	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerBusinessEntityID(SearchTestCases.java:134)
+</pre></div><a href='#' onClick='toggleBox("stack-trace681747431", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace681747431'><pre>java.io.IOException: The filename, directory name, or volume label syntax is incorrect
+	at java.base/java.io.WinNTFileSystem.canonicalize0(Native Method)
+	at java.base/java.io.WinNTFileSystem.canonicalize(WinNTFileSystem.java:416)
+	at java.base/java.io.File.getCanonicalPath(File.java:618)
+	at org.apache.commons.io.FileUtils.copyFile(FileUtils.java:1064)
+	at org.apache.commons.io.FileUtils.copyFile(FileUtils.java:1028)
+	at Utility.UtilitiesWebDriver.TakeScreenshot(UtilitiesWebDriver.java:107)
+	at Validation.AssertionsDesktopBrowser.AssertFail(AssertionsDesktopBrowser.java:45)
+	at TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountNumber(SearchTestCases.java:98)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -136,30 +146,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>57</td>
-<td>TestCaseDesktopBrowser.automation.SearchTestCases@6b26e945</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountName()'><b>SearchCustomerAccountName</b><br>Test class: TestCaseDesktopBrowser.automation.SearchTestCases<br>Test method: TC011: Search Customer by Account Name</td>
-<td></td>
-<td>56</td>
-<td>TestCaseDesktopBrowser.automation.SearchTestCases@6b26e945</td></tr>
-<tr>
-<td title='TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerAccountNumber()'><b>SearchCustomerAccountNumber</b><br>Test class: TestCaseDesktopBrowser.automation.SearchTestCases<br>Test method: TC009: Search Customer by Account Number</td>
-<td></td>
-<td>49</td>
-<td>TestCaseDesktopBrowser.automation.SearchTestCases@6b26e945</td></tr>
-<tr>
-<td title='TestCaseDesktopBrowser.automation.SearchTestCases.SearchCustomerPartyID()'><b>SearchCustomerPartyID</b><br>Test class: TestCaseDesktopBrowser.automation.SearchTestCases<br>Test method: TC008: Search Customer by Party ID</td>
-<td></td>
-<td>38</td>
+<td>0</td>
 <td>TestCaseDesktopBrowser.automation.SearchTestCases@6b26e945</td></tr>
 </table><p>
 </body>

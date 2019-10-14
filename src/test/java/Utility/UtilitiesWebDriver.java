@@ -1,12 +1,20 @@
 package Utility;
 
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import HelperClass.ReadPropertyFile;
 
 
 public class UtilitiesWebDriver {
@@ -17,7 +25,7 @@ public class UtilitiesWebDriver {
 	readPropertyFile= new ReadPropertyFile();
 	if(readPropertyFile.GetBrowserName().equalsIgnoreCase("firefox"))
 	{
-			System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") + "\\Resources\\Drivers\\geckodriver.exe"); //Enable setProprty only if you are using Selenium 3.0/above and firefox 37 and above
+			System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") + "\\Resources\\Drivers\\geckodriver.exe"); 
 			driver = new FirefoxDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
@@ -27,7 +35,6 @@ public class UtilitiesWebDriver {
 	}
 	else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("chrome"))
 	{
-			System.out.println(System.getProperty("user.dir") +"//src");
 			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\Resources\\Drivers\\chromedriver_v76.exe");
 			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
@@ -95,5 +102,17 @@ public class UtilitiesWebDriver {
         return driver.getCurrentUrl();
     }
 
+	public static void TakeScreenshot(String sTestcaseID) throws IOException
+	{
+		File screenshot =((TakesScreenshot)driver1).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshot, new File(System.getProperty("user.dir") +"\\Results\\Screenshots\\" + sTestcaseID + dateNTime().replace('/', '-') +".jpg"));
+	}
+	
+	public static String dateNTime()
+	{
+		SimpleDateFormat dateTime = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date=new Date();
+		return dateTime.format(date);
+	}
 
 }
