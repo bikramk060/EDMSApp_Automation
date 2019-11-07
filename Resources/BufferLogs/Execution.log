@@ -1,0 +1,6 @@
+2019-11-07 16:51:32,896 [main] INFO HelperClass.SmartLogger - Connected to MasterDB
+2019-11-07 16:51:38,408 [main] INFO HelperClass.SmartLogger - Connected to TestDB
+2019-11-07 16:51:50,091 [main] INFO HelperClass.SmartLogger - Browser Selected: ChromeDriver: chrome on XP (399f110b20267ea6a162cb269f7b0976)
+2019-11-07 16:52:02,158 [main] INFO HelperClass.SmartLogger - Environment Name: TS3
+2019-11-07 16:52:39,287 [main] INFO HelperClass.SmartLogger - Closing Driver: ChromeDriver: chrome on XP (399f110b20267ea6a162cb269f7b0976)
+2019-11-07 16:52:41,303 [main] INFO HelperClass.SmartLogger - Closing Browser

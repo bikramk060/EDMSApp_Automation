@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [RetryFailedTestCases]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="HelperClass.MyTransformer"/>
-  </listeners>
-  <test thread-count="5" name="RetryMultipleFailedTestCases(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
       <class name="TestCaseDesktopBrowser.automation.SearchTestCases">
         <methods>
+          <include name="SearchCustomerBeGeoID"/>
           <include name="DataSetup"/>
-          <include name="SearchCustomerAccountNumber"/>
           <include name="DataCleanUp"/>
-          <include name="SearchCustomerBusinessEntityID"/>
           <include name="TearDown"/>
           <include name="SetPropertyForWebDriver"/>
         </methods>
       </class> <!-- TestCaseDesktopBrowser.automation.SearchTestCases -->
     </classes>
-  </test> <!-- RetryMultipleFailedTestCases(failed) -->
-</suite> <!-- Failed suite [RetryFailedTestCases] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

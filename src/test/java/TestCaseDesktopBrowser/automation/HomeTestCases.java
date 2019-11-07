@@ -23,7 +23,7 @@ public class HomeTestCases{
 	@BeforeClass
 	public void DataSetup() throws SQLException, IOException
 	{
-		TestDataBase.ConnectToDB();
+		TestDataBase.ConnectToTestDB();
 	}
 	
 	@BeforeMethod

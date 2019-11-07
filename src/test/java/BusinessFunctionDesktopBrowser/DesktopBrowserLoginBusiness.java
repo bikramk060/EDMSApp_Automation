@@ -66,11 +66,11 @@ public class DesktopBrowserLoginBusiness {
 		DesktopBrowserLoginPageObj.SetValueForUserNameTextbox(readProprtyFile.GetBrowserLoginValidUserName());
 		UtilitiesWebDriver.ExplicitWait(2);
 		DesktopBrowserLoginPageObj.ClickOnloginButton();
-		UtilitiesWebDriver.ExplicitWait(2);
+		UtilitiesWebDriver.ExplicitWait(4);
 		DesktopBrowserLoginPageObj.SetValueForpasswordTextbox(readProprtyFile.GetBrowserLoginValidPassword());
-		UtilitiesWebDriver.ExplicitWait(2);
+		UtilitiesWebDriver.ExplicitWait(1);
 		DesktopBrowserLoginPageObj.ClickOnloginButton();
-		UtilitiesWebDriver.ExplicitWait(3);
+		UtilitiesWebDriver.ExplicitWait(4);
 		System.out.println("Actual value: "+ DesktopBrowserLoginPageObj.FetchLoggedUserName());
 		if(AssertionsDesktopBrowser.ElementTextAssert(readProprtyFile.GetBrowserLoginValidUserName().toUpperCase(), DesktopBrowserLoginPageObj.FetchLoggedUserName()))
 			return true;

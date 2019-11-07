@@ -125,7 +125,8 @@ public class ActionDesktopBrowser {
 	  
 	  public void HardWait(int seconds) throws InterruptedException
 	  {
-		  Thread.sleep(seconds*1000);
+		  driver.wait(seconds *1000);
+		  
 	  }
 	  
 	  public void MoveToElementIfElementAvailable(WebElement element)

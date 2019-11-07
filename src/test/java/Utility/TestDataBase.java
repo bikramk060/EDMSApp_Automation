@@ -22,9 +22,9 @@ public class TestDataBase extends Common{
 		}
 	 }
 	 
-	 public static void ConnectToDB()
+	 public static void ConnectToTestDB()
 	 {
-		 statement = Common.ConnectToTestDataBase();
+		 statement = Common.ConnectToTestDataBase(statement);
 	 }
 
 	public static ArrayList<String> FetchUsernameAndPassword(String testCaseName) throws SQLException
@@ -42,17 +42,13 @@ public class TestDataBase extends Common{
 	public static ArrayList<String> FetchSearchCustomerData(String testCaseNumber) throws SQLException 
 	{
 		ArrayList<String> dataList = new ArrayList<String>();
-		resultSet = statement.executeQuery("SELECT SearchBy,SearchData,MiscellaneousData FROM automationtestingdbedms.edms_search_customer_data where TestCaseNumber='" + testCaseNumber + "'");
+		resultSet = statement.executeQuery("SELECT SearchData,MiscellaneousData,MasterTableQuerries FROM automationtestingdbedms.edms_search_customer_data where TestCaseNumber='" + testCaseNumber + "'");
 		while(resultSet.next())
 		 {
-			//dataList.add(resultSet.getString("SearchBy"));
 			dataList.add(resultSet.getString("SearchData"));
 			dataList.add(resultSet.getString("MiscellaneousData"));
+			dataList.add(resultSet.getString("MasterTableQuerries"));
 		 }
-		for(int i=0;i<dataList.size();i++)
-		{
-			System.out.println(dataList.get(i));
-		}
 		return dataList;
 	}
 	

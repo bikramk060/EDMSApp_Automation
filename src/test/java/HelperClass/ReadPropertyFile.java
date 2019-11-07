@@ -24,7 +24,9 @@ public class ReadPropertyFile {
 	}
 	public String GetTS1BrowserURL() throws IOException
 	{
-		return prop.getProperty("TS1_LOGIN_URL");
+		String sBrowserURL = new String(decoder.decode(prop.getProperty("TS1_LOGIN_URL")));
+		return sBrowserURL;
+		
 	}
 	public String GetBrowserLoginValidUserName() 
 	{
@@ -48,7 +50,8 @@ public class ReadPropertyFile {
 	}
 	public String GetTS3BrowserURL() 
 	{
-		return prop.getProperty("TS3_LOGIN_URL");
+		String sBrowserURL = new String(decoder.decode(prop.getProperty("TS3_LOGIN_URL")));
+		return sBrowserURL;
 	}
 	public String GetServiceBaseURI() 
 	{
@@ -62,22 +65,53 @@ public class ReadPropertyFile {
 	{
 		return prop.getProperty("EXECUTION_ENV");
 	}
-	public String GetDriverRegistrationJDBC()
+	public String GetDriverRegistrationMySQL()
 	{
-		return prop.getProperty("REGISTER_JDBC_DRIVER");
+		String sBrowserURL = new String(decoder.decode(prop.getProperty("TEST_DB_REGISTER_DRIVER")));
+		return sBrowserURL;
 	}
 	public String GetDBConnectionURL()
 	{
-		return prop.getProperty("DB_CONNECTION_URL");
+		String dbURL = new String(decoder.decode(prop.getProperty("TEST_DB_CONNECTION_URL")));
+		return dbURL;
 	}
 	public String GetUserNameDB()
 	{
-		String sUserName = new String(decoder.decode(prop.getProperty("DB_USERNAME")));
+		String sUserName = new String(decoder.decode(prop.getProperty("TEST_DB_USERNAME")));
 		return sUserName;
 	}
 	public String GetPasswordDB()
 	{
-		String sPassword = new String(decoder.decode(prop.getProperty("DB_PASSWORD")));
+		String sPassword = new String(decoder.decode(prop.getProperty("TEST_DB_PASSWORD")));
 		return sPassword;
+	}
+	public String GetEnvironmentMasterDB()
+	{
+		return prop.getProperty("MASTER_DB_NAME");
+	}
+	public String GetUserNameMasterDB()
+	{
+		String sUserName = new String(decoder.decode(prop.getProperty("MASTER_DB_USERNAME")));
+		return sUserName;
+	}
+	public String GetPasswordMasterDB()
+	{
+		String sPassword = new String(decoder.decode(prop.getProperty("MASTER_DB_PASSWORD")));
+		return sPassword;
+	}
+	public String GetMasterDBdriverRegistration()
+	{
+		String sBrowserURL = new String(decoder.decode(prop.getProperty("MASTER_DB_REGISTER_DRIVER")));
+		return sBrowserURL;
+	}
+	public String GetMasterDBconnectionURL()
+	{
+		String dbURL = new String(decoder.decode(prop.getProperty("MASTER_DB_CONNECTION_URL")));
+		return dbURL;
+	}
+	public String GetMasterDBtnsURL()
+	{
+		String sTns = new String(decoder.decode(prop.getProperty("MASTER_DB_TNS_URL")));
+		return sTns;
 	}
 }

@@ -100,7 +100,7 @@ public class SearchPageClass {
 			case CUSTOMER_ACCOUNT_NUMBER:
 				selectShowTypeDropDown.selectByVisibleText("Customer Account Number");
 			case BEGEO_ID:
-				selectShowTypeDropDown.selectByVisibleText("Customer Account Number");
+				selectShowTypeDropDown.selectByVisibleText("BEGEO ID");
 				    break;	 
 			default:
 					System.out.println("INVALID SEARCH BY VALUE SELECTED");

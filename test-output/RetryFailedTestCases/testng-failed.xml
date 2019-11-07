@@ -12,6 +12,7 @@
           <include name="SearchCustomerAccountNumber"/>
           <include name="DataCleanUp"/>
           <include name="SearchCustomerBusinessEntityID"/>
+          <include name="SearchCustomerPartyID"/>
           <include name="TearDown"/>
           <include name="SetPropertyForWebDriver"/>
         </methods>

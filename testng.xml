@@ -7,10 +7,11 @@
   <test name="RetryMultipleFailedTestCases">
     <classes>
       <!-- <class name="TestCaseRestAPI.automation.GetRequestTestCases"/> 
-      <class name="TestCaseAndroidApp.automation.DiscoverTestCases"/>		-->
       <class name="TestCaseDesktopBrowser.automation.HomeTestCases"/> 
-      <class name="TestCaseDesktopBrowser.automation.SearchTestCases"/>
       <class name="TestCaseDesktopBrowser.automation.LoginTestCases"/>
+      <class name="TestCaseAndroidApp.automation.DiscoverTestCases"/>		-->
+      <class name="TestCaseDesktopBrowser.automation.SearchTestCases"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -2,8 +2,6 @@ package Utility;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -13,14 +11,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import HelperClass.ReadPropertyFile;
+import HelperClass.SmartLogger;
 
 
 public class UtilitiesWebDriver {
 	
-	static WebDriver driver1;
-	static ReadPropertyFile readPropertyFile;
+	public static WebDriver driver1;
+	public static ReadPropertyFile readPropertyFile;
+	public static SmartLogger logger = new SmartLogger();
 	public static WebDriver OpenBrowser(WebDriver driver) throws Exception{
 	readPropertyFile= new ReadPropertyFile();
 	if(readPropertyFile.GetBrowserName().equalsIgnoreCase("firefox"))
@@ -35,12 +34,13 @@ public class UtilitiesWebDriver {
 	}
 	else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("chrome"))
 	{
-			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\Resources\\Drivers\\chromedriver_v76.exe");
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") + "\\Resources\\Drivers\\chromedriver_v78.exe");
 			driver = new ChromeDriver();
 			driver.manage().deleteAllCookies();
 			driver.manage().window().maximize();
 			//driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 			driver1=driver;
+			logger.PrintInfo("Browser Selected: " + driver);
 			return driver;
 	}
 		else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("Edge"))
@@ -51,6 +51,7 @@ public class UtilitiesWebDriver {
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 			driver1=driver;
+			logger.PrintInfo("Browser Selected: " + driver);
 			return driver;
 		}
 		else if(readPropertyFile.GetBrowserName().equalsIgnoreCase("IE"))
@@ -61,6 +62,7 @@ public class UtilitiesWebDriver {
 			driver.manage().window().maximize();
 			driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 			driver1=driver;
+			logger.PrintInfo("Browser Selected: " + driver);
 			return driver;
 		}
 		else{
@@ -73,15 +75,18 @@ public class UtilitiesWebDriver {
 	public static void GetApplicationURL(WebDriver driver) throws InterruptedException, IOException
 	{
 		readPropertyFile= new ReadPropertyFile();
+		ActionDesktopBrowser actionDesktopBrowser = new ActionDesktopBrowser(GetWebDriverInstance());
 		String environment = readPropertyFile.GetExecutionEnvironment();
 		if(environment.equalsIgnoreCase("TS1"))
 		{
 			driver.get(readPropertyFile.GetTS1BrowserURL());
-			Thread.sleep(1000);
+			logger.PrintInfo("Environment Name: " + environment);
+			actionDesktopBrowser.HardWait(3);
 		}
 		else if (environment.equalsIgnoreCase("TS3"))
 		{
 			driver.get(readPropertyFile.GetTS3BrowserURL());
+			logger.PrintInfo("Environment Name: " + environment);
 			Thread.sleep(2000);
 		}
 	}
@@ -89,7 +94,9 @@ public class UtilitiesWebDriver {
 	public static void KillWebDriverInstance(WebDriver driver)
 	{
 		driver.close();
+		logger.PrintInfo("Closing Driver: " + driver.toString());
 		driver.quit();
+		logger.PrintInfo("Closing Browser");
 	}
 	
 	public static void ExplicitWait(int seconds) throws InterruptedException
@@ -105,14 +112,12 @@ public class UtilitiesWebDriver {
 	public static void TakeScreenshot(String sTestcaseID) throws IOException
 	{
 		File screenshot =((TakesScreenshot)driver1).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File(System.getProperty("user.dir") +"\\Results\\Screenshots\\" + sTestcaseID + dateNTime().replace('/', '-') +".jpg"));
+		FileUtils.copyFile(screenshot, new File(Common.GetScreenshotPath() + "\\" + sTestcaseID + ".png"));
 	}
 	
-	public static String dateNTime()
+	public static WebDriver GetWebDriverInstance()
 	{
-		SimpleDateFormat dateTime = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date=new Date();
-		return dateTime.format(date);
+		return driver1;
 	}
 
 }
